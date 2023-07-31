@@ -2,6 +2,14 @@
 
 Explanation of the tool and it's purpose. Be Brief and say it concisely in a sentence
 
+# Key Terms
+
+#### &&:
+
+`echo Hello && echo World`
+Run the following command only if the first command succeeds  
+\*\*\*\*\*\*\*\*\*\*
+
 ## GETTING STARTED COMMANDS
 
 #### Uncompress a .zip file
@@ -9,14 +17,14 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 `unzip <path to zip file> -d <location to save decompressed file>`  
 `-d` show all containers
 
-\_\_
+\*\*\*\*\*\*\*\*\*\*
 
-#### DESCRIPTION OF COMMAND #2
+#### Tail display last few lines of a file
 
-`docker run --name <name> image:version`  
- `-d` detached mode running container in the background  
- `-p` on port x:x  
-\_\_
+`tail -f /path/to/file`  
+ `-f` follow bottom of file if any changes are appended
+
+\*\*\*\*\*\*\*\*\*\*
 
 #### DESCRIPTION OF COMMAND #3
 
@@ -30,5 +38,8 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 
 `docker exec -i <container> <command>`  
 `-i` interactive. Keep STDIN open even when unattached
+\*\*\*\*\*\*\*\*\*\*
 
 ## DESCRIPTION OF COMMAND #2
+
+\*\*\*\*\*\*\*\*\*\*

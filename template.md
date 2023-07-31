@@ -2,6 +2,20 @@
 
 Explanation of the tool and it's purpose. Be Brief and say it concisely in a sentence
 
+# Key Terms
+
+#### Key_Term:
+
+Definition and example  
+\*\*\*\*\*\*\*\*\*\*
+
+#### Key_Term:
+
+Definition and example  
+\*\*\*\*\*\*\*\*\*\*
+
+---
+
 ## GETTING STARTED COMMANDS
 
 #### COMMAND EXPLANATION
@@ -9,31 +23,61 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 `docker ps -a`  
 `-a` show all containers
 
-\_\_
+\*\*\*\*\*\*\*\*\*\*
 
 #### COMMAND
 
 ``  
 `-`
-\_\_
+
+\*\*\*\*\*\*\*\*\*\*
 
 #### COMMAND
 
 ``  
 `-`
-\_\_
+
+\*\*\*\*\*\*\*\*\*\*
 
 ---
 
 ## ADVANCED COMMANDS
 
-#### DESCRIPTION OF COMMAND #1
+#### COMMAND
 
-`docker exec -i <container> <command>`  
-`-i` interactive. Keep STDIN open even when unattached
+``  
+`-`
+
+\*\*\*\*\*\*\*\*\*\*
 
 #### COMMAND
 
 ``  
 `-`
-\_\_
+
+\*\*\*\*\*\*\*\*\*\*
+
+---
+
+## Configs
+
+#### Name_of_config
+
+What does the config do  
+Config example and definition of each term
+
+\*\*\*\*\*\*\*\*\*\*
+
+---
+
+## Processes
+
+#### Process
+
+1. steps
+2. step
+3. step
+
+\*\*\*\*\*\*\*\*\*\*
+
+---

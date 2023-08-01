@@ -7,7 +7,10 @@ its depencies into a light and isolated environment
 
 #### Container:
 
+A lightweight, standalone, and executable software pacakge that includes everything needed to run a piece of software  
+or  
 An isolated process in a machine that can contain an application and all its necessary depenencies. Isolated filesystems provided by an image  
+**_Each container should do one thing and do it well_**  
 \*\*\*\*\*\*\*\*\*\*
 
 #### Context:
@@ -18,13 +21,14 @@ A specific environment where Docker operates and performs actions. Similar to a 
 #### Volumes:
 
 Map specific filesystem path on local machine to the container for persistent data  
-_Named Volumes:_ Bucket of data. Docker maintains the physical location on the disk. End user names only needs to remember the name of the volume
+_Named Volumes:_ Bucket of data. Docker maintains the physical location on the disk. End user names only needs to remember the name of the volume  
+_Bind Mounts:_ We control the exact mountpoint on the host. Can be used to persist data or more often to provide additional data inst containers.  
 \*\*\*\*\*\*\*\*\*\*
 
 #### Image:
 
 A template of a container's filesystem. It has everything needed to run the application - all dependencies,configuration, scripts, binaries, etc.  
-Also has it's own configuration stored like env vars
+Also has it's own configuration stored like env vars  
 \*\*\*\*\*\*\*\*\*\*
 
 #### Environment variables:
@@ -67,16 +71,17 @@ Giving it a unique name and version to be easily identifiable and allows others 
 
 #### Create and run a container
 
-`docker run --name <name> <image>:<version> <optional_corresponding_interprt> <optional_cmnd>`
+`docker run --name <name> <image>:<version> `
 
 `-d` detached mode running container in the background  
  `-p` map port of x of the host to port y in the container  
  `--rm` remove container when stopped  
- `-v <volume_name>:<cntner_pth>` volume to mount to container
---
+ `-v <volume_name_or_absolute_path>:<cntner_pth>`  
+ `-w <working_directory>` sets the container present working directory where the command will run from
+`<optional_corresponding_interprt> <optional_cmnd>` command to run on container
 `<username>/<repo_name>` Can include the user and the repo of that user you want to pull an image from instead of `<image>:<version>`  
 `<optional_interprt> <optional_cmnd>` command to be ran in the container
-example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/project.py`  
+example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/project.py`
 \*\*\*\*\*\*\*\*\*\*
 
 #### Rename a container
@@ -97,16 +102,17 @@ example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/
 ` `  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Change the environment where Docker operates.
-
-`docker context create ecs myecscontext`  
-` `  
-\*\*\*\*\*\*\*\*\*\*
-
 #### Delete the container
 
 `docker rm <container_name_or_id>`  
 `-f` forcefully stop the container if running and then delete it
+
+---
+
+#### Container logs
+
+`docker logs -f <container_name_or_id>`  
+`-f` Follow log output
 
 ---
 
@@ -139,6 +145,12 @@ _Example:_
 
 `docker push <username>/<image_name>:<optinal_tag>`
 
+\*\*\*\*\*\*\*\*\*\*
+
+#### Change the environment where Docker operates.
+
+`docker context create ecs myecscontext`  
+` `  
 \*\*\*\*\*\*\*\*\*\*
 
 ## Configs

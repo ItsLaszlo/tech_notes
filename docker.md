@@ -5,38 +5,40 @@ its depencies into a light and isolated environment
 
 ## Key Terms
 
-#### Container:
+### Container
 
-A lightweight, standalone, and executable software pacakge that includes everything needed to run a piece of software  
+A lightweight, standalone, and executable software package that includes everything needed to run a piece of software  
 or  
-An isolated process in a machine that can contain an application and all its necessary depenencies. Isolated filesystems provided by an image  
+An isolated process in a machine that can contain an application and all its necessary dependencies. Isolated filesystems provided by an image  
 **_Each container should do one thing and do it well_**  
+If two containers are on the same network, they can talk to each other. If they aren't, they can't.
 \*\*\*\*\*\*\*\*\*\*
 
-#### Context:
+### Context
 
-A specific environment where Docker operates and performs actions. Similar to a BE(Boot Environment) has the exact rules, settings, and configurations/conditions needed by the app. _ The configuration and settings for Docker to interact with different conatainer env_ Examples: local Docker install, remote Docker host, or a cloud-based container service like AWS ECS or kubernetes.  
+A specific environment where Docker operates and performs actions. Similar to a BE(Boot Environment) has the exact rules, settings, and configurations/conditions needed by the app.  
+The configuration and settings for Docker to interact with different container env_ Examples: local Docker install, remote Docker host, or a cloud-based container service like AWS ECS or kubernetes.  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Volumes:
+### Volumes
 
 Map specific filesystem path on local machine to the container for persistent data  
 _Named Volumes:_ Bucket of data. Docker maintains the physical location on the disk. End user names only needs to remember the name of the volume  
 _Bind Mounts:_ We control the exact mountpoint on the host. Can be used to persist data or more often to provide additional data inst containers.  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Image:
+### Image
 
 A template of a container's filesystem. It has everything needed to run the application - all dependencies,configuration, scripts, binaries, etc.  
 Also has it's own configuration stored like env vars  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Environment variables:
+### Environment variables
 
 A default command to run on other metadata  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Tags:
+### Tags
 
 Giving it a unique name and version to be easily identifiable and allows others to pull specific version
 \*\*\*\*\*\*\*\*\*\*
@@ -45,31 +47,31 @@ Giving it a unique name and version to be easily identifiable and allows others 
 
 ## Getting Started
 
-#### COMMAND
+### COMMAND
 
 ``  
-`-`
+`-`  
 \*\*\*\*\*\*\*\*\*\*
 
-#### See all Docker images
+### See all Docker images
 
 `docker images`  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Build docker image
+### Build docker image
 
 `docker build -t <image_name>:<tag> <path_to_docker_file>`  
 `-t` name for the image  
 `-f <path to docker file>`  
 \*\*\*\*\*\*\*\*\*\*
 
-#### See all containers running and not running
+### See all containers running and not running
 
 `docker ps -a`  
 `-a` show all containers  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Create and run a container
+### Create and run a container
 
 `docker run --name <name> <image>:<version> `
 
@@ -81,35 +83,46 @@ Giving it a unique name and version to be easily identifiable and allows others 
 `<optional_corresponding_interprt> <optional_cmnd>` command to run on container
 `<username>/<repo_name>` Can include the user and the repo of that user you want to pull an image from instead of `<image>:<version>`  
 `<optional_interprt> <optional_cmnd>` command to be ran in the container
-example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/project.py`
+example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/project.py`  
+_Example_
+
+```bash
+docker run -dp 3000:3000 -v todo-db:/etc/todos getting-started
+
+docker run -dp 3000:3000 \
+    -w /app -v "$(pwd):/app" \
+    node:18-alpine \
+    sh -c "yarn install && yarn run dev"
+```
+
 \*\*\*\*\*\*\*\*\*\*
 
-#### Rename a container
+### Rename a container
 
 `docker rename <og_name> <new_name>`  
 ` `  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Start Docker container
+### Start Docker container
 
 `docker start <container>`  
 `-i` interactive  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Stop Docker container
+### Stop Docker container
 
 `docker stop <container>`  
 ` `  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Delete the container
+### Delete the container
 
 `docker rm <container_name_or_id>`  
 `-f` forcefully stop the container if running and then delete it
 
 ---
 
-#### Container logs
+### Container logs
 
 `docker logs -f <container_name_or_id>`  
 `-f` Follow log output
@@ -118,7 +131,7 @@ example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/
 
 ## Advanced
 
-#### Volume
+### Volume
 
 `docker volume <action>`  
 `create <name_volume>`  
@@ -126,7 +139,7 @@ example: `bash -c "echo Hello!"` | `sh -c "echo Hello!` | `python /path/to/your/
 `ls` see list of volumes  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Execute a command into a container
+### Execute a command into a container
 
 `docker exec <container> <command>`  
 `-i` interactive. Keep STDIN open even when unattached  
@@ -136,18 +149,18 @@ _Example:_
 `docker exec 56a714cded3b cat /data.txt`  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Create a tag for an existing docker image.
+### Create a tag for an existing docker image.
 
 `docker tag <image name>:<optional_tag> <YOUR-USER-NAME>/<repo name>`  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Push docker image into Docker hub repo
+### Push docker image into Docker hub repo
 
 `docker push <username>/<image_name>:<optinal_tag>`
 
 \*\*\*\*\*\*\*\*\*\*
 
-#### Change the environment where Docker operates.
+### Change the environment where Docker operates.
 
 `docker context create ecs myecscontext`  
 ` `  
@@ -155,7 +168,7 @@ _Example:_
 
 ## Configs
 
-#### Docker Image file
+### Docker Image file
 
 A docker file defines the configuration and instructions for building a docker container image  
 The file is named _Dockerfile_
@@ -170,3 +183,11 @@ The file is named _Dockerfile_
    a. Create repo
    b. Tag image  
    c. Push image
+\*\*\*\*\*\*\*\*\*\*
+---
+
+## Links
+
+[Docker tutorial](https://docs.docker.com/get-started/02_our_app/)  
+[Play with Docker](https://labs.play-with-docker.com/#)  
+[Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/)  

@@ -2,14 +2,14 @@
 
 A declarative infrastructure as code tool that lets you define and manage infrastructure through config files.
 
-# Key Terms
+## Key Terms
 
-#### Key_Term:
+### Key_Term
 
 Definition and example  
 \*\*\*\*\*\*\*\*\*\*
 
-#### Key_Term:
+### Key_Term2
 
 Definition and example  
 \*\*\*\*\*\*\*\*\*\*
@@ -32,7 +32,7 @@ Definition and example
 
 \*\*\*\*\*\*\*\*\*\*
 
-### COMMAND
+### COMMAND1
 
 ``  
 `-`
@@ -43,14 +43,14 @@ Definition and example
 
 ## ADVANCED COMMANDS
 
-#### COMMAND
+### COMMAND2
 
 ``  
 `-`
 
 \*\*\*\*\*\*\*\*\*\*
 
-#### COMMAND
+### COMMAND3
 
 ``  
 `-`
@@ -61,7 +61,7 @@ Definition and example
 
 ## Configs
 
-#### Name_of_config
+### Name_of_config
 
 What does the config do  
 Config example and definition of each term
@@ -72,7 +72,7 @@ Config example and definition of each term
 
 ## Processes
 
-#### Process
+### Process
 
 1. steps
 2. step
@@ -81,3 +81,7 @@ Config example and definition of each term
 \*\*\*\*\*\*\*\*\*\*
 
 ---
+
+## Links
+
+[Name](link)  

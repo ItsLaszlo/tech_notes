@@ -44,7 +44,7 @@ Giving it a unique name and version to be easily identifiable and allows others 
 
 ### Network
 
-Provides a way for containers to communicate with each other. Like a virtual environment. If two containers are on the same network, they can talk to each other. If they aren't, they can't.  
+Provides a way for containers to communicate with each other in a virtual network environment. If two containers are on the same network, they can talk to each other. If they aren't, they can't.  
 network alias are assigned as a more descriptive name for containers to use when communicating with one another.  
 \*\*\*\*\*\*\*\*\*\*
 
@@ -74,6 +74,14 @@ network alias are assigned as a more descriptive name for containers to use when
 
 `docker ps -a`  
 `-a` show all containers  
+\*\*\*\*\*\*\*\*\*\*
+
+### Run docker compose file
+
+`docker compose <action>`
+`up`  
+`down` Tear down containers  
+`-d` detached
 \*\*\*\*\*\*\*\*\*\*
 
 ### Create and run a container
@@ -120,7 +128,7 @@ docker run -dp 3000:3000 \
 ### Stop Docker container
 
 `docker stop <container>`  
-` `  
+
 \*\*\*\*\*\*\*\*\*\*
 
 ### Delete the container
@@ -128,11 +136,13 @@ docker run -dp 3000:3000 \
 `docker rm <container_name_or_id>`  
 `-f` forcefully stop the container if running and then delete it
 
+\*\*\*\*\*\*\*\*\*\*
 ---
 
 ### Container logs
 
-`docker logs -f <container_name_or_id>`  
+`docker logs -f <container_name_or_id>`
+`<container_name_or_id>` optional can show logs of all containers  
 `-f` Follow log output
 
 ---
@@ -165,7 +175,7 @@ _Example:_
 `docker exec 56a714cded3b cat /data.txt`  
 \*\*\*\*\*\*\*\*\*\*
 
-### Create a tag for an existing docker image.
+### Create a tag for an existing docker image
 
 `docker tag <image name>:<optional_tag> <YOUR-USER-NAME>/<repo name>`  
 \*\*\*\*\*\*\*\*\*\*
@@ -176,7 +186,7 @@ _Example:_
 
 \*\*\*\*\*\*\*\*\*\*
 
-### Change the environment where Docker operates.
+### Change the environment where Docker operates
 
 `docker context create ecs myecscontext`  
 ` `  
@@ -189,9 +199,52 @@ _Example:_
 A docker file defines the configuration and instructions for building a docker container image  
 The file is named _Dockerfile_
 
+```yaml
+FROM <base_image>
+WORKDIR <working_dir_on_container>
+ADD <path_of_local_file_to_add> <path_on_cntnr_to_save_file>
+
+```
+
+### Docker Compose file
+
+Defines the configuration of multiple containers in one file. Define and share multi-container applications.  
+_docker-compose.yml_
+
+```yaml
+services: #list of services/containers we want to run
+  <service_name_(app)>: # The name will automatically become a network alias
+    image: node:18-alpine
+    container_name: bless #if name is not specified it will default to: <project-name>_<service-name>_<replica-number>
+    command: sh -c "yarn install && yarn run dev"
+    ports:
+      - 3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  <service_name_(mysql)>:
+    image: mysql:8.0
+    volumes: # Named volumes are not automatically created in docker compose file like cli
+      - todo-mysql-data:/var/lib/mysql
+    environment: 
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+
+volumes: #need to define the volume in the top-level
+  todo-mysql-data: #only providing volume name will use default options
+```
+
 ---
 
-## Sharing an App
+## Processes
+
+### Sharing an App
 
 1. Create an image
 2. Test image and create a container
@@ -199,6 +252,7 @@ The file is named _Dockerfile_
    a. Create repo
    b. Tag image  
    c. Push image
+
 \*\*\*\*\*\*\*\*\*\*
 ---
 

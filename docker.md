@@ -11,7 +11,6 @@ A lightweight, standalone, and executable software package that includes everyth
 or  
 An isolated process in a machine that can contain an application and all its necessary dependencies. Isolated filesystems provided by an image  
 **_Each container should do one thing and do it well_**  
-If two containers are on the same network, they can talk to each other. If they aren't, they can't.
 \*\*\*\*\*\*\*\*\*\*
 
 ### Context
@@ -41,6 +40,12 @@ A default command to run on other metadata
 ### Tags
 
 Giving it a unique name and version to be easily identifiable and allows others to pull specific version
+\*\*\*\*\*\*\*\*\*\*
+
+### Network
+
+Provides a way for containers to communicate with each other. Like a virtual environment. If two containers are on the same network, they can talk to each other. If they aren't, they can't.  
+network alias are assigned as a more descriptive name for containers to use when communicating with one another.  
 \*\*\*\*\*\*\*\*\*\*
 
 ---
@@ -76,10 +81,13 @@ Giving it a unique name and version to be easily identifiable and allows others 
 `docker run --name <name> <image>:<version> `
 
 `-d` detached mode running container in the background  
- `-p` map port of x of the host to port y in the container  
- `--rm` remove container when stopped  
- `-v <volume_name_or_absolute_path>:<cntner_pth>`  
- `-w <working_directory>` sets the container present working directory where the command will run from
+`-p` map port of x of the host to port y in the container  
+`--rm` remove container when stopped  
+`-v <volume_name_or_absolute_path>:<cntner_pth>` Will created named volume if not already created  
+`-w <working_directory>` sets the container present working directory where the command will run from
+`-e` Set environment variables for the container  
+`--network <network_name>` Connects container to specific docker network  
+`--network-alias <cntnr_alias>` Assigns additional alias to a container when connected to a network. An alternative name other containers can refer to the container.  
 `<optional_corresponding_interprt> <optional_cmnd>` command to run on container
 `<username>/<repo_name>` Can include the user and the repo of that user you want to pull an image from instead of `<image>:<version>`  
 `<optional_interprt> <optional_cmnd>` command to be ran in the container
@@ -130,6 +138,14 @@ docker run -dp 3000:3000 \
 ---
 
 ## Advanced
+
+### Creating network
+
+`docker network <action>`  
+`create <network_name>`  
+`inspect` see network info  
+`ls` see list of networks  
+\*\*\*\*\*\*\*\*\*\*
 
 ### Volume
 
@@ -183,6 +199,19 @@ The file is named _Dockerfile_
    a. Create repo
    b. Tag image  
    c. Push image
+\*\*\*\*\*\*\*\*\*\*
+---
+
+## Images
+
+[nginx]()  
+[mysql:8.0]()  
+[node]()  
+[python:3]()  
+[nicolaka/netshoot](https://github.com/nicolaka/netshoot)  
+useful for troubleshooting or debugging networking issues.  
+-
+
 \*\*\*\*\*\*\*\*\*\*
 ---
 

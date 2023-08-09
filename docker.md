@@ -63,6 +63,12 @@ network alias are assigned as a more descriptive name for containers to use when
 `docker images`  
 \*\*\*\*\*\*\*\*\*\*
 
+### See docker image history
+
+`docker image`
+`history <img> --no-trunc` See the layers in the image untruncated
+\*\*\*\*\*\*\*\*\*\*
+
 ### Build docker image
 
 `docker build -t <image_name>:<tag> <path_to_docker_file>`  
@@ -184,6 +190,15 @@ _Example:_
 
 `docker push <username>/<image_name>:<optinal_tag>`
 
+\*\*\*\*\*\*\*\*\*\*
+
+### Change the environment where Docker operates
+
+`docker scout <action> <image>`  
+`cves <img1>` Display CVEs (Common Vulnerabilities and Exposures) identified in an image
+`quickview <img1>` Quick overview of an image
+`compare <img1> <img2>` compare two images and display differences  
+`recommendations` Display available base image updates and remediation recommendations
 \*\*\*\*\*\*\*\*\*\*
 
 ### Change the environment where Docker operates

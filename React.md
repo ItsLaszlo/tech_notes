@@ -4,10 +4,14 @@ A library for building user interfaces
 
 ## Key Terms
 
+### JSX
+ 
 ### Component
 Reusable module that renders a part of an overall app. They can be big or small but are clearly defined and serve a single obvious purpose
-*Rules:*
-- Use pascal case ex) App, List, AcceptButton
+*Rules:* Use pascal case for functions ex) App, List, AcceptButton
+
+- Component props: A means of passing data into a React component. Props can only be passed from parent components down to child components. Flow of data is unidirectional.
+- Attributes: just like HTML attirbutes but different name at times because reserved words in JS
 \*\*\*\*\*\*\*\*\*\*
 
 

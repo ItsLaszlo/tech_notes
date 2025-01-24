@@ -7,7 +7,10 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 
 ### Hooks
 Special functions that make components simpler to use by allowing you to keep components cleaner and reuse logic more easily.
-- Add local state to function components (`useState`).
+- Add local state to functional components (`useState`).
+  `const [name,setName] = useState(''); `
+  name =  State Variable that holds the current value
+  setName = updates the state
 - Use lifecycle methods like mounting, updating, and cleanup (`useEffect`).
 - Access context in a simple way (`useContext`).
 

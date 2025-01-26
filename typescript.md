@@ -4,6 +4,10 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 
 ## React + typsecript
 - File extension `.tsx`
+  
+## Type Inferencing
+- Typescript automatically determins the type of variable based on its assigned value
+- In react/jsx only applies this inside JSX when defining callback functions directly in line
 
 ### Interfaces
 

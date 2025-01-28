@@ -16,12 +16,18 @@ Reusable module that renders a part of an overall app. They can be big or small 
 
 
 ### Component Pattern
-
+```
 Import
 Function
 Export: makes function/COMPONENT available to other modules
-\*\*\*\*\*\*\*\*\*\*
+```
+Types of Components:
+Event: Handle user interactions like clicks, hover, drag bu responding to them and listening to them with built in Event handlers: `onClick` `onChange`.
+Functional: Use functions and react hooks (ex. `useState` `useEffect`) for state and lifecycle methods
+Class: Have state and lifecycle methods built-in. State is declared and uses this to reference it.
 
+
+\*\*\*\*\*\*\*\*\*\*
 ### Hook
 
 A way to use Reacts featured insde of a component

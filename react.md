@@ -1,9 +1,34 @@
-# Front End
+# React
 
-Explanation of the tool and it's purpose. Be Brief and say it concisely in a sentence
+A library for building user interfaces
 
-## React Key Terms
+## Key Terms
 
+### JSX
+ 
+### Component
+Reusable module that renders a part of an overall app. They can be big or small but are clearly defined and serve a single obvious purpose
+*Rules:* Use pascal case for functions ex) App, List, AcceptButton
+
+- Component props: A means of passing data into a React component. Props can only be passed from parent components down to child components. Flow of data is unidirectional.
+- Attributes: just like HTML attirbutes but different name at times because reserved words in JS
+\*\*\*\*\*\*\*\*\*\*
+
+
+#### Patterns
+```
+Import
+Function
+Export: makes function/COMPONENT available to other modules
+```
+####Types of Components:
+
+- Event: Handle user interactions like clicks, hover, drag bu responding to them and listening to them with built in Event handlers: `onClick` `onChange`.
+- Functional: Use functions and react hooks (ex. `useState` `useEffect`) for state and lifecycle methods
+- Class: Have state and lifecycle methods built-in. State is declared and uses this to reference it.
+
+
+\*\*\*\*\*\*\*\*\*\*
 
 ### Hooks
 Special functions that make components simpler to use by allowing you to keep components cleaner and reuse logic more easily.
@@ -40,46 +65,35 @@ UI that can be rendered and optionally cached on the server
 
 ## GETTING STARTED COMMANDS
 
-### COMMAND EXPLANATION
 
-`docker ps -a`  
-`-a` show all containers
+### `npm install`  
+`install` show all containers
 
 \*\*\*\*\*\*\*\*\*\*
 
-### COMMAND
-
-``  
+### `npm run dev`  
 `-`
 
 \*\*\*\*\*\*\*\*\*\*
+## File structure
 
-### COMMAND1
+### main.jsx
+ Entry point of app 
 
-``  
-`-`
+```
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client' //Finds the specified element where React will inject the app
+import './index.css'
+import App from './App.jsx'
+//.render() Tells React what to display inside the "root element"
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
 
-\*\*\*\*\*\*\*\*\*\*
+```
 
----
-
-## ADVANCED COMMANDS
-
-### COMMAND2
-
-``  
-`-`
-
-\*\*\*\*\*\*\*\*\*\*
-
-### COMMAND3
-
-``  
-`-`
-
-\*\*\*\*\*\*\*\*\*\*
-
----
 
 ## Configs
 

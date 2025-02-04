@@ -12,7 +12,7 @@ Explanation of the tool and it's purpose. Be Brief and say it concisely in a sen
 ### Interfaces
 
 Define structure of an object. Like a contract. 
-```
+```TS
 interface Person {
   name: string;
   age: number;
@@ -27,7 +27,7 @@ const person: Person = {
 
 ### Define react components in Typescript
 
-```
+```ts
  
 export const ChildTwo: React.FunctionComponent<ChildProps> = ({ color, onClick }) => {
   return <div> 
@@ -42,19 +42,11 @@ Definition and example
 
 ---
 
-## GETTING STARTED COMMANDS
+## React
 
-### COMMAND EXPLANATION
+### `React.FunctionComponent` or `React.FC`
 
-`docker ps -a`  
-`-a` show all containers
-
-\*\*\*\*\*\*\*\*\*\*
-
-### COMMAND
-
-``  
-`-`
+It types functional components for TS. It allows component automatically accepts children props and  provides type safety for the props that a component expects to receive.
 
 \*\*\*\*\*\*\*\*\*\*
 

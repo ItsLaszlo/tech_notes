@@ -5,8 +5,11 @@ A library for building user interfaces
 ## Key Terms
 
 ### JSX
- 
+
+N/A
+
 ### Component
+
 Reusable module that renders a part of an overall app. They can be big or small but are clearly defined and serve a single obvious purpose
 *Rules:* Use pascal case for functions ex) App, List, AcceptButton
 
@@ -14,14 +17,15 @@ Reusable module that renders a part of an overall app. They can be big or small 
 - Attributes: just like HTML attirbutes but different name at times because reserved words in JS
 \*\*\*\*\*\*\*\*\*\*
 
-
 #### Patterns
-```
+
+```md
 Import
 Function
 Export: makes function/COMPONENT available to other modules
 ```
-####Types of Components:
+
+#### Types of Components  
 
 - Event: Handle user interactions like clicks, hover, drag bu responding to them and listening to them with built in Event handlers: `onClick` `onChange`.
 - Functional: Use functions and react hooks (ex. `useState` `useEffect`) for state and lifecycle methods
@@ -31,11 +35,13 @@ Export: makes function/COMPONENT available to other modules
 \*\*\*\*\*\*\*\*\*\*
 
 ### Hooks
+
 Special functions that make components simpler to use by allowing you to keep components cleaner and reuse logic more easily.
 #### Types:
 
+
 - `useState` Add local state to functional components.  
-  `const [name,setName] = useState(''); `  
+  `const [name,setName] = useState('');`  
   
       name =  State Variable that holds the current value  
       setName = updates the state

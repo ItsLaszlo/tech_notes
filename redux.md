@@ -8,12 +8,25 @@ State management library for JS apps. Manages global state in applications where
 ### Store
 
 Holds the entire application state  
+#### `createStore`  
+Redux function used to create Redux store
+```ts
+const store = createStore(
+  reducers,            // Root reducer function
+  {},                  // Initial state (empty object here)
+  applyMiddleware(thunk) // Apply middleware (e.g., thunk for async actions)
+);
+
+```
+
+### Action Creator
+
+Function that returns an action
+
+
 \*\*\*\*\*\*\*\*\*\*
 
-### Reducer
 
-Function that defines how the state changes after an action  
-\*\*\*\*\*\*\*\*\*\*
 
 ### Middleware  
 
@@ -26,18 +39,25 @@ Middleware is code that intercepts actions before they reach the reducer
 
 ### `dispatch`
 
-Method provided by store to send actions. Triggers state changes
+Sends actions to the Redux store/Reducer. When called it tells Redux to update the state based on the action passed through it. -> Reducer looks at action type to see how to change state
+
+### Reducer
+
+Function that defines how the state changes after an action  
+\*\*\*\*\*\*\*\*\*\*
 
 \*\*\*\*\*\*\*\*\*\*
 
-### COMMAND
+### React + Redux
 
-``  
-`-`
+#### `<Provider>`
+Wrapper component that makes redux store available to all nested components in the app. Gives access to the global state managed by Redux.
+
 
 \*\*\*\*\*\*\*\*\*\*
 
-### COMMAND1
+### `useDispatch`
+Hook that gives access to dispatch function
 
 ``  
 `-`

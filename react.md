@@ -32,12 +32,16 @@ Export: makes function/COMPONENT available to other modules
 
 ### Hooks
 Special functions that make components simpler to use by allowing you to keep components cleaner and reuse logic more easily.
-- Add local state to functional components (`useState`).
-  `const [name,setName] = useState(''); `
-  name =  State Variable that holds the current value
-  setName = updates the state
-- Use lifecycle methods like mounting, updating, and cleanup (`useEffect`).
-- Access context in a simple way (`useContext`).
+#### Types:
+
+- `useState` Add local state to functional components.  
+  `const [name,setName] = useState(''); `  
+  
+      name =  State Variable that holds the current value  
+      setName = updates the state
+- `useEffect` Use lifecycle methods like mounting, updating, and cleanup.
+- `useContext` Access context in a simple way.
+- `useRef` Accessing and modifying DOM elements across redenders. Does not trigger a Re-render.
 
 ### LifeCycle Events
 React component have a life cycle, which consists of three phases:

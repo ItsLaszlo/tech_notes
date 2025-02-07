@@ -39,7 +39,7 @@ Middleware is code that intercepts actions before they reach the reducer
 
 ### `dispatch`
 
-Sends actions to the Redux store/Reducer. When called it tells Redux to update the state based on the action passed through it. -> Reducer looks at action type to see how to change state
+Sends actions to the Redux store. When called it tells Redux to update the state based on the action passed through it. -> Redux store uses Reducers to identify action type to see how to change state
 
 ### Reducer
 
@@ -55,12 +55,34 @@ Wrapper component that makes redux store available to all nested components in t
 
 
 \*\*\*\*\*\*\*\*\*\*
+## Hooks
 
 ### `useDispatch`
+
 Hook that gives access to dispatch function
 
-``  
-`-`
+```ts
+import { useDispatch } from "react-redux";
+
+export const useActions = () => {
+  const dispatch = useDispatch();
+
+  return bindActionCreators(actionCreators, dispatch);
+};
+
+```
+
+### `useSelector`
+
+Hook that extracts the state from Redux store
+
+```ts
+import { useSelector } from 'react-redux';
+
+const { data, error, loading } = useSelector(
+    (state: any) => state.repositories
+  );
+```
 
 \*\*\*\*\*\*\*\*\*\*
 

@@ -37,32 +37,64 @@ Export: makes function/COMPONENT available to other modules
 ### Hooks
 
 Special functions that make components simpler to use by allowing you to keep components cleaner and reuse logic more easily.
-#### Types:
 
+#### Hook Types
 
 - `useState` Add local state to functional components.  
   `const [name,setName] = useState('');`  
-  
       name =  State Variable that holds the current value  
       setName = updates the state
 - `useEffect` Use lifecycle methods like mounting, updating, and cleanup.
 - `useContext` Access context in a simple way.
-- `useRef` Accessing and modifying DOM elements across redenders. Does not trigger a Re-render.
+- `useRef` Accessing and modifying DOM elements across renders. Does not trigger a Re-render.
 
 ### LifeCycle Events
+
 React component have a life cycle, which consists of three phases:
 
 - Mounting, that is putting inserting elements into the DOM.
 - Updating, which involves methods for updating components in the DOM.
 - Unmounting, that is removing a component from the DOM.
+
+### DOM
+
+Document Object Model. A structure that represents the Web page's HTML
+
+#### ReactDOM.render(element, DOM location)
+
+Render elements into the DOM
+
+```tsx
+import ReactDOM from 'react-dom';
+
+const App = () => {
+  return <h1>Hi</h1>;
+};
+
+ReactDOM.render(<App />, document.querySelector('#root'));
+```
+Renders reach elements into the dom 
+
+### Elements
+
+#### Element Types
+
+  1. Controlled Element: Value is controlled by the state and is always connected to the component state.
+
+
+#### `<pre>`
+display preformatted text
+
 \*\*\*\*\*\*\*\*\*\*
 
 ## NEXT.js Key Terms
 
 ### layout.tsx
+
 This file sets up the basic structure for all pages in the Next.js app.
 
 ### global.css
+
 This file sets up the basic css structure for all pages in the Next.js app.
 
 ### Client Components
